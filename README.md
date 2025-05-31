@@ -6,7 +6,7 @@ Este projeto tem como objetivo alimentar o front-end do sistema de cadastro de a
 ## Para clonar o projeto
 
 ```
-git clone https://github.com/ProvaGCS/front.git
+git clone https://github.com/estfreddyokino/ProvaGCS.git
 ```
 
 ## Para começar a rodar o projeto
@@ -14,7 +14,7 @@ git clone https://github.com/ProvaGCS/front.git
 Após clonar o projeto dê os comandos
 
 ```
-cd front
+cd ProvaGCS
 npm install
 npm run dev
 ```
