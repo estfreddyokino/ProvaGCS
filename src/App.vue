@@ -9,7 +9,6 @@ function handleLogin(payload: { email: string; password: string }) {
   console.log('Login realizado:', payload);
 }
 </script>
-
 <style>
 html, body, #app {
   margin: 0;

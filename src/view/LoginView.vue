@@ -33,6 +33,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { users } from '../database/users';
 
 const email = ref<string>('');
 const password = ref<string>('');
@@ -46,26 +47,41 @@ function onSubmit() {
     alert('Preencha todos os campos!');
     return;
   }
+
+  const userExists = users.find(
+    (user) => user.email === email.value && user.password === password.value
+  );
+
+  if (!userExists) {
+    alert('Usuário ou senha inválidos!');
+    return;
+  }
+
   emit('login', { email: email.value, password: password.value });
 }
 </script>
 
 <style scoped>
+/* ✅ Garantir que o background ocupe toda a tela */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
+/* ✅ Container ocupa 100% e centraliza */
 .full-screen-container {
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
   background: linear-gradient(135deg, #6a0dad, #1e90ff);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-
+/* ✅ Estilo do cartão de login */
 .login-card {
   background: rgba(255, 255, 255, 0.95);
   padding: 2.5rem;
@@ -73,23 +89,24 @@ function onSubmit() {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
   width: 100%;
   max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-/* Título */
 .login-card h2 {
   text-align: center;
   color: #6a0dad;
-  margin-bottom: 2rem;
-}
-
-
-.form-group {
   margin-bottom: 1.5rem;
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
   color: #333;
   font-weight: bold;
 }
@@ -108,7 +125,6 @@ function onSubmit() {
   box-shadow: 0 0 6px #6a0dad88;
   outline: none;
 }
-
 
 button {
   width: 100%;
