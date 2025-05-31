@@ -44,6 +44,10 @@ const emit = defineEmits<{
 }>();
 
 function onSubmit() {
+  if (!email.value || !password.value) {
+    alert('Preencha todos os campos!');
+    return;
+  }
   emit('login', { email: email.value, password: password.value });
 }
 </script>
