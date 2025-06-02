@@ -30,7 +30,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-
+import AlunosView from './AlunosView.vue';
 
 
 const props = defineProps<{ userEmail: string }>();
@@ -49,7 +49,7 @@ function logout() {
 </script>
 
 <style scoped>
-/* Ocupa toda a tela /
+
 .container {
   width: 100%;
   min-height: 100vh;
@@ -57,7 +57,7 @@ function logout() {
   flex-direction: column;
 }
 
-/ Navbar estilizada /
+
 .navbar {
   display: flex;
   gap: 1rem;
@@ -73,13 +73,13 @@ function logout() {
   font-weight: bold;
 }
 
-/ Conteúdo principal /
+
 .content {
   flex: 1;
   padding: 2rem;
 }
 
-/ Modal de confirmação */
+
 .modal-overlay {
   position: fixed;
   top: 0;
