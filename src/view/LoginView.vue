@@ -62,14 +62,12 @@ function onSubmit() {
 </script>
 
 <style scoped>
-/* ✅ Garantir que o background ocupe toda a tela */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
-/* ✅ Container ocupa 100% e centraliza */
 .full-screen-container {
   min-height: 100vh;
   min-width: 100vw;
@@ -81,29 +79,33 @@ html, body {
   box-sizing: border-box;
 }
 
-/* ✅ Estilo do cartão de login */
 .login-card {
   background: rgba(255, 255, 255, 0.95);
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
   width: 100%;
-  max-width: 400px;
+  max-width: 360px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 
 .login-card h2 {
   text-align: center;
   color: #6a0dad;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; 
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem; 
 }
 
 .form-group label {
@@ -113,30 +115,34 @@ html, body {
 
 .form-group input {
   width: 100%;
-  padding: 0.6rem 1rem;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
+  max-width: 95%; 
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .form-group input:focus {
   border-color: #6a0dad;
-  box-shadow: 0 0 6px #6a0dad88;
+  box-shadow: 0 0 5px #6a0dad88;
   outline: none;
 }
 
 button {
   width: 100%;
-  padding: 0.75rem;
+  max-width: 300px; 
+  padding: 0.6rem; 
   background: linear-gradient(to right, #6a0dad, #1e90ff);
   color: white;
   border: none;
-  border-radius: 10px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
+  align-self: center; 
+  margin-top: 0.5rem; 
 }
 
 button:hover {
