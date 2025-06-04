@@ -1,9 +1,14 @@
 <template>
   <div class="container">
     <nav class="navbar">
-      <button @click="navigate('home')">Home</button>
-      <button @click="navigate('alunos')">Alunos</button>
-      <button @click="showModal = true">Sair</button>
+      <div class="nav-left">
+        <button @click="navigate('home')">Home</button>
+        <button @click="navigate('alunos')">Alunos</button>
+
+      </div>
+      <div class="nav-right">
+        <button @click="showModal = true">Sair</button>
+      </div>
     </nav>
 
     <main class="content">
@@ -83,7 +88,7 @@ function logout() {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +103,7 @@ function logout() {
 
 .modal-buttons {
   display: flex;
-  gap: 1rem; 
+  gap: 1rem;
 }
 
 .btn-sim {
@@ -111,11 +116,51 @@ function logout() {
 }
 
 .btn-nao {
-  background-color: #dc3545; 
+  background-color: #dc3545;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #6a0dad, #1e90ff);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-left a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.nav-left a:hover {
+  opacity: 0.8;
+}
+
+.nav-right button {
+  background: none;
+  border: 1px solid white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, opacity 0.3s;
+}
+
+.nav-right button:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 </style>
