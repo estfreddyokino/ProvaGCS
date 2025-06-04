@@ -21,8 +21,10 @@
     <div v-if="showModal" class="modal-overlay">
       <div class="modal">
         <p>Quer realmente sair?</p>
-        <button @click="logout">Sim</button>
-        <button @click="showModal = false">Não</button>
+        <div class="modal-buttons">
+          <button class="btn-sim" @click="logout">Sim</button>
+          <button class="btn-nao" @click="showModal = false">Não</button>
+        </div>
       </div>
     </div>
   </div>
@@ -31,7 +33,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import AlunosView from './AlunosView.vue';
-
 
 const props = defineProps<{ userEmail: string }>();
 const emit = defineEmits<{ (e: 'logout'): void }>();
@@ -49,14 +50,12 @@ function logout() {
 </script>
 
 <style scoped>
-
 .container {
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 
 .navbar {
   display: flex;
@@ -73,12 +72,10 @@ function logout() {
   font-weight: bold;
 }
 
-
 .content {
   flex: 1;
   padding: 2rem;
 }
-
 
 .modal-overlay {
   position: fixed;
@@ -96,5 +93,29 @@ function logout() {
   background: white;
   padding: 2rem;
   border-radius: 10px;
+}
+
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem; 
+}
+
+.btn-sim {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-nao {
+  background-color: #dc3545; 
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
 </style>
